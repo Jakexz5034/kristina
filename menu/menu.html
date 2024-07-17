@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff80ab 0%, #ba68c8 100%);
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .info_buttons {
+      background: linear-gradient(45deg, #8e2de2 0%, #4a00e0 100%);
+      border: none;
+      color: white;
+      padding: 12px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 25px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s, transform 0.3s;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .info_buttons:hover {
+      background: linear-gradient(45deg, #4a00e0 0%, #8e2de2 100%);
+      transform: translateY(-2px);
+    }
+
+    .info_buttons:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .unique_button {
+      background-color: #ffeb3b;
+      border: 2px solid #ff5722;
+      color: #ff5722;
+      padding: 15px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 18px;
+      margin: 4px 2px;
+      cursor: not-allowed;
+      border-radius: 25px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s, transform 0.3s;
+      font-family: 'Montserrat', sans-serif;
+      position: relative;
+    }
+
+    .unique_button.disabled {
+      background-color: #e0e0e0;
+      color: #9e9e9e;
+      border-color: #9e9e9e;
+      cursor: not-allowed;
+    }
+
+    .tooltip {
+      visibility: hidden;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 10px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .unique_button:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .content {
+      text-align: center;
+    }
+
+    #countdown {
+      font-size: 1.5em;
+      text-align: center;
+      margin-top: 20px;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <h2>Here is everything I could think of that you might want to know about me or have of me 😛</h2>
+    <br>
+    <a href="../family/family.html">
+      <button class="info_buttons">Relatives Names (+faces)</button>
+    </a>
+
+    <a href="../timeline/friendship.html">
+      <button class="info_buttons">Friendship Timeline</button>
+    </a>
+
+    <br>
+    <br>
+    <br>
+    <button id="unique_button" class="unique_button disabled">
+      The Exciting Information of My Life
+      <span class="tooltip">Here is information that I will give you access to once you graduate.
+      <br>
+      <br>
+      Topics Include:
+        <br>
+        -SAT Score
+        <br>
+        -Cringey Child Hood Videos of me 
+      </span>
+    </button>
+
+    <div id="countdown"></div>
+  </div>
+
+  <script>
+    // Set the date and time when the button should become clickable
+    var targetDate = new Date('2025-06-15T12:00:00Z'); // Example: July 1st, 2024 at 12:00 UTC
+
+    // Function to update the button state and countdown timer
+    function updateButton() {
+      var now = new Date();
+      var timeDifference = targetDate - now;
+
+      if (timeDifference <= 0) {
+        // Clear countdown timer
+        clearInterval(countdownInterval);
+        document.getElementById('countdown').innerHTML = '';
+
+        // Enable the button
+        document.getElementById('unique_button').classList.remove('disabled');
+        document.getElementById('unique_button').addEventListener('click', redirectToPage);
+      } else {
+        // Calculate remaining time
+        var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+        // Update the countdown element with remaining time
+        document.getElementById('countdown').innerHTML = 'Available in: ' +
+          days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
+      }
+    }
+
+    // Function to redirect to another page
+    function redirectToPage() {
+      // Replace 'your-page-url' with the actual URL you want to redirect to
+      window.location.href = "../sike.html";
+    }
+
+    // Update button initially and every second
+    updateButton();
+    var countdownInterval = setInterval(updateButton, 1000);
+  </script>
+</body>
+
+</html>

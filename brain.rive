@@ -1,0 +1,13 @@
+! version = 2.0
+
++ hello
+- Hi there!
+
++ how are you
+- I'm just a bot, but I'm doing great!
+
++ what is your name
+- I'm a chatbot created using RiveScript.
+
++ *
+- I'm not sure how to respond to that.

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Password Entry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+      background: linear-gradient(135deg, #ff80ab 0%, #ba68c8 100%);
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .styleinput {
+      padding: 12px;
+      font-size: 16px;
+      border: 2px solid #fff;
+      border-radius: 25px;
+      margin-bottom: 20px;
+      width: 250px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .submit-button {
+      background: linear-gradient(45deg, #8e2de2 0%, #4a00e0 100%);
+      border: none;
+      color: white;
+      padding: 12px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 25px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s, transform 0.3s;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .submit-button:hover {
+      background: linear-gradient(45deg, #4a00e0 0%, #8e2de2 100%);
+      transform: translateY(-2px);
+    }
+
+    .submit-button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    h3 {
+      font-size: 1.2em;
+      color: #fff;
+      margin-top: 30px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    #countdown {
+      margin-top: 10px;
+      font-size: 1.5em;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Enter Password</h1>
+  <input class="styleinput" type="password" id="password" name="password" required minlength="4" maxlength="300" size="52" placeholder="Enter password" />
+  <button class="submit-button" onclick="checkPassword()">Submit</button>
+
+  <h3>Countdown until you will be sent a hint to the password 😙:</h3>
+  <div id="countdown"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script>
+    function checkPassword() {
+      var password = document.getElementById('password').value.trim();
+      var hashedPassword1 = "0b14d501a594442a01c6859541bcb3e8164d183d32937b851835442f69d5c94e"; 
+      var hashedPassword2 = "6cf615d5bcaac778352a8f1f3360d23f02f34ec182e259897fd6ce485d7870d4"; 
+
+      var inputHash = CryptoJS.SHA256(password).toString();
+
+      if (inputHash === hashedPassword1) {
+        window.location.href = 'menu/menu.html'; 
+      } else if (inputHash === hashedPassword2) {
+        window.location.href = 'sike.html'; // Congrats if you got here earlier than the timer, however, you're not finding out the password through the code 😛
+      } else {
+        alert('Incorrect password!');
+      }
+    }
+
+    var countDownDate = new Date("Jan 1, 2025 23:59:59").getTime();
+
+    var x = setInterval(function () {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML = days + "d " + hours + "h " +
+        minutes + "m " + seconds + "s ";
+
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+  </script>
+
+</body>
+
+</html>

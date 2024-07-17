@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff80ab 0%, #ba68c8 100%);
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        h1, h2, h3 {
+            font-size: 1.5em;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .begin_button {
+            background: linear-gradient(45deg, #8e2de2 0%, #4a00e0 100%);
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, transform 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .begin_button:hover {
+            background: linear-gradient(45deg, #4a00e0 0%, #8e2de2 100%);
+            transform: translateY(-2px);
+        }
+
+        .begin_button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .dropdown {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            padding: 20px;
+            border-radius: 8px;
+            color: #333;
+        }
+
+        .dropdown-text {
+            cursor: pointer;
+            text-decoration: underline;
+            color: #4a00e0;
+            font-size: 1.2em;
+        }
+
+        .dropdown-content.show {
+            display: block;
+        }
+
+        .family_photos {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1>Relatives + Pics</h1>
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown1')">
+            <span class="dropdown-text">Jake Trac</span>
+            <div class="dropdown-content" id="dropdown1">
+                <h2>Jake Trac</h2>
+                <p>This is Jake Trac, the main character.</p>
+                <p>He loves you more than you could ever imagine and he'll be here for you whenever you need him. He thinks you're cute and loves you with all his heart</p>
+                <img class="family_photos" src="/images/aboutjake.PNG" alt="picture of me :3">
+                <img class="family_photos" src="/images/ljake.jpg" alt="another picture of me :3">
+                <img class="family_photos" src="/images/inandoutjake.jpg" alt="picture of me with in and out">
+            </div>
+        </div>
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown2')">
+            <span class="dropdown-text">Maya Trac</span>
+            <div class="dropdown-content" id="dropdown2">
+                <h2>Maya Trac</h2>
+                <p>This is Maya. She is my Mom!</p>
+                <p>She likes you and thinks you're the best girl I've ever "dated." She thinks you're smart, hard working, and most of all, kind.</p>
+                <img class="family_photos" src="/images/mom1.PNG" alt="picture of my mom 1"/>
+                <img class="family_photos" src="/images/mom2.PNG" alt="picture of my mom 2"/>
+                <img class="family_photos" src="/images/mom3.PNG" alt="picture of my mom 3"/>
+            </div>
+        </div>
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown3')">
+            <span class="dropdown-text">Toan Trac</span>
+            <div class="dropdown-content" id="dropdown3">
+                <h2>Toan Trac</h2>
+                <p>This is Toan. He is my Dad!</p>
+                <p>He just knows you as my girlfriend :/ but I'm sure if he got to know you a little he would like you :). I know I do <3</p>
+                <img class="family_photos" src="/images/dad1.PNG" alt="picture of my dad 1"/>
+                <img class="family_photos" src="/images/dad2.PNG" alt="picture of my dad 2"/>
+                 <img class="family_photos" src="/images/dad3.PNG" alt="picture of my dad 3"/>
+                <br>
+                <br>
+                (The only pictures of my dad that I have are with my mom) 
+
+            </div>
+        </div>
+
+        <!-- Add more relatives here -->
+
+    </div>
+
+    <script>
+        function toggleDropdown(event, id) {
+            event.stopPropagation(); // Prevent the click event from bubbling up to the document
+
+            closeAllDropdowns(); // Close all dropdowns
+
+            var dropdownContent = document.getElementById(id);
+            dropdownContent.classList.toggle("show");
+
+            // Bring the clicked dropdown to the front
+            dropdownContent.style.zIndex = '2'; // Ensure it comes in front
+        }
+
+        function closeAllDropdowns() {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                dropdowns[i].classList.remove("show");
+                dropdowns[i].style.zIndex = '1'; // Reset zIndex
+            }
+        }
+
+        // Close all dropdowns if the user clicks anywhere else on the page
+        document.addEventListener('click', function() {
+            closeAllDropdowns();
+        });
+    </script>
+</body>
+
+</html>

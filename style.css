@@ -1,0 +1,112 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.styleinput {
+
+  /* Green */
+  border: none;
+  color: black;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: default;
+  border-radius: 10px;
+
+
+}
+
+.submit-button {
+  background: linear-gradient(45deg, #8e2de2 0%, #4a00e0 100%);
+  /* Purple/Blue gradient background */
+  border: none;
+  /* No border */
+  color: white;
+  /* White text */
+  padding: 10px 20px;
+  /* Padding */
+  text-align: center;
+  /* Centered text */
+  text-decoration: none;
+  /* No underline */
+  display: inline-block;
+  /* Displayed as inline block */
+  font-size: 16px;
+  /* Font size */
+  margin: 4px 2px;
+  /* Margin */
+  cursor: pointer;
+  /* Cursor style */
+  border-radius: 8px;
+  /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Box shadow for 3D effect */
+  transition: background 0.3s, transform 0.3s;
+  /* Smooth transitions */
+}
+
+.submit-button:hover {
+  background: linear-gradient(45deg, #4a00e0 0%, #8e2de2 100%);
+  /* Reverse gradient on hover */
+  transform: translateY(-2px);
+  /* Slight lift on hover */
+}
+
+.submit-button:active {
+  transform: translateY(0);
+  /* Remove lift on click */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* Slightly reduce shadow on click */
+}
+
+
+
+.begin_button {
+  border: none;
+  /* No border */
+  color: white;
+  /* White text */
+  padding: 10px 20px;
+  /* Padding */
+  text-align: center;
+  /* Centered text */
+  text-decoration: none;
+  /* No underline */
+  display: inline-block;
+  /* Displayed as inline block */
+  font-size: 16px;
+  /* Font size */
+  margin: 4px 2px;
+  /* Margin */
+  cursor: pointer;
+  /* Cursor style */
+  border-radius: 8px;
+  /* Rounded corners */
+  
+}
+
+.begin_button:hover {
+   background-color: #06A695;
+  /* Darker red */
+  transform: translateY(-5px);
+  opacity: 0.9;
+}
+
+.info_buttons {
+/* design buttons */
+  
+}
+
+.info_buttons:hover {
+  /* hover for button */
+}
+
+.family_photos {
+    width: 200px;
+    height: auto;
+    border: 3px solid #F49BF8;
+}

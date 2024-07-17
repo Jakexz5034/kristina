@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friendship Timeline</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f3f4f6;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #4a00e0;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #ff819f;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .content {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .dropdown {
+            position: relative;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .dropdown-text {
+            display: block;
+            padding: 15px;
+            background-color: #4a00e0;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-text:hover {
+            background-color: #8e2de2;
+        }
+
+        .dropdown-content {
+            display: none;
+            background-color: #f9f9f9;
+            width: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .dropdown.show .dropdown-content {
+            display: block;
+        }
+
+        .small-image {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border: 2px solid #4a00e0;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+    </style>
+    <script>
+        function toggleDropdown(event, dropdownId) {
+            const dropdownContent = document.getElementById(dropdownId);
+            dropdownContent.classList.toggle('show');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="content">
+        <h1>Friendship Timeline</h1>
+        <h2>Here I've marked canon events of our friendship</h2>
+        <h3>Hehe, I love you Kristina</h3>
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown1')">
+            <span class="dropdown-text">December 20, 2023 (Orange Incident)</span>
+            <div class="dropdown-content" id="dropdown1">
+                <h2>Orange Incident</h2>
+                <p>This is the first picture you sent to me with a cutie in your mouth. It foreshadows that one day you'd be my cutie :3. I really like this picture.</p>
+                <img class="small-image" src="/memories/kri_orangepic.jpg" alt="Orange Picture">
+            </div>
+        </div>
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown2')">
+            <span class="dropdown-text">December 5th, 2023 (The Pan Incident)</span>
+            <div class="dropdown-content" id="dropdown2">
+                <h2>The Pan Incident</h2>
+                <p>You asked me to get a pan for Anna's Birthday. It was also an excuse to talk to you.</p>
+                <video width="640" height="360" controls>
+                    <source src="../memories/panvideo.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>

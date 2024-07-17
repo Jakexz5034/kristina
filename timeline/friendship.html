@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            background-color: #ff819f;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .begin_button {
+            background: linear-gradient(45deg, #8e2de2 0%, #4a00e0 100%);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, transform 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .begin_button:hover {
+            background: linear-gradient(45deg, #4a00e0 0%, #8e2de2 100%);
+            transform: translateY(-2px);
+        }
+
+        .begin_button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .dropdown {
+            position: relative;
+            margin-bottom: 20px;
+
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f9f9f9;
+            width: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .dropdown-text {
+            background-color: #800080; /* Purple background */
+            border: none; /* Remove borders */
+            color: white; /* White text */
+            padding: 15px 32px; /* Some padding */
+            text-align: center; /* Centered text */
+            text-decoration: none; /* Remove underline */
+            display: inline-block; /* Get the element to line up correctly */
+            font-size: 16px; /* Increase font size */
+            margin: 4px 2px; /* Add some margin */
+            transition-duration: 0.4s; /* 0.4 second transition effect to hover */
+            cursor: pointer; /* Pointer/hand icon */
+            border-radius: 12px; /* Rounded corners */
+
+
+        }
+
+        .dropdown-content.show {
+            display: block;
+        }
+
+        .small-image {
+            width: 200px;
+            height: auto;
+            border: 2px solid purple; /* Adds a 2px purple border */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1>Friendship Timeline</h1>
+        <h2>Here I've tried to mark cannon events of our friendship</h2>
+        <h3>hehe I love you kristina</h3>
+
+
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown1')">
+            <span class="dropdown-text">December 20, 2023 (Orange Incident)</span>
+            <div class="dropdown-content" id="dropdown1">
+                <h2>Orange Incident</h2>
+                <p>This is the first picture you sent to me with a cutie in your mouth. I would argue that this event was integral to our friendship. It foreshadows that one day you'd be my cutie :3, I really do like this picture.</p>
+                <br>
+                <img class="small-image" src="/memories/kri_orangepic.jpg" alt="Orange Picture">
+            </div>
+        </div>
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown2')">
+            <span class="dropdown-text">December 5th, 2023 (The Pan Incident)</span>
+            <div class="dropdown-content" id="dropdown2">
+                <h2>The Pan Incident</h2>
+                <p>You asked me to get a pan for Anna's Birthday. I wanted to do something nice for Anna, but it was also an excuse to talk to you.</p>
+                <br>
+                <video class="small-image"  controls>
+                    <source src="../memories/panvideo.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown3')">
+            <span class="dropdown-text">December 8th, 2023 (Anna's Birthday)</span>
+            <div class="dropdown-content" id="dropdown3">
+                <h2>Anna's Birthday</h2>
+                <p>I parked in Anna's driveway and then we went to pick you up. It was the first time I saw your house. We sat next to each other, but I think you thought it was awkward. Anyways, we ate a lot of food and ended the night with bingsu and hating on people we didn't like.</p>
+                <br>
+                <img class="small-image" src="/memories/food1.JPG" alt="Picture of food">
+                <img class="small-image" src="/memories/bingsu.JPG" alt="Picture of bingsu">
+                <img class="small-image" src="/memories/jake1.jpeg" alt="Picture of Jake">
+                <img class="small-image" src="/memories/kri1.jpeg" alt="Picture of Kri">
+            </div>
+        </div>
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown4')">
+            <span class="dropdown-text">December 21, 2023 (Christmas Hangout)</span>
+            <div class="dropdown-content" id="dropdown4">
+                <h2>Christmas Hangout</h2>
+                <p>We all went to Selina's house and Anna and I brought Canes, but Selina's mom cooked a lot of food for us. I bought two gifts for you. A Megumi sweater and some hand warmers. It was winter and it was really cold when you played golf so I decided to get you hand warmers. Anyways, we both went in Selina's bed and I lowkey wanted to cuddle with you. You got me ornaments on Christmas 🙄. I love you so much though.</p>
+                <img class="small-image" src="/memories/christmasfood.JPG" alt="Picture of Food">
+                <img class="small-image" src="/memories/presents1.JPG" alt="Picture of Presents">
+                <img class="small-image" src="/memories/ornaments.jpg" alt="Picture of Ornaments">
+            </div>
+        </div>
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown5')">
+            <span class="dropdown-text">December 22, 2023 (Ice Skating)</span>
+            <div class="dropdown-content" id="dropdown5">
+                <h2>Ice Skating</h2>
+                <p>You suggested that we go ice skating. I had never been and I was terrified of going, but you said it would be fine. I literally sucked so badly. You will never catch me on the ice again. I clenched onto you the whole time. You were so cute that. I built that shit BRICK by BRICK </p>
+                <img class="small-image" src="/memories/iceskate1.JPG" alt="Us Ice Skating 1">
+                <img class="small-image" src="/memories/iceskate2.JPG" alt="Us Ice Skating 2">
+                <img class="small-image" src="/memories/iceskate3.jpeg" alt="Us Ice Skating 3">
+            </div>
+        </div>
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown6')">
+            <span class="dropdown-text">January 9th, 2024 (Orange Incident Part 2)</span>
+            <div class="dropdown-content" id="dropdown6">
+                <h2>Orange Incident Part 2</h2>
+                <p>This picture is soooooo funny hehe. I caught you lackin. But you're still cute. I'm sorry for all the misery this photo has caused you. I'd like to let you know, I will not delete this photo any time soon :)</p>
+                <br>
+                <img class="small-image" src="/memories/kri_orangepic2.JPG" alt="Kri Orange part 2">
+            </div>
+        </div>
+
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown7')">
+            <span class="dropdown-text">January 17th, 2024 (First Library Run)</span>
+            <div class="dropdown-content" id="dropdown7">
+                <h2>First Library Run</h2>
+                <p>I drove you and Selina around Claremont for your English Project. Some would say I was being used that day 🙄. But It's okay! I was happy to do it, I also felt bad you feeling a little sick. Anyways, after we took all the pictures we got Canes and recorded our first mukbang. After we ate I took you both to the library and that was our first library run. We ran into Sam and he drew that picture.
+
+        <br>
+        <br>
+
+        Hehe that was the first time we went to the library together. 
+                    
+                </p>
+                <br>
+                <img class="small-image" src="/memories/kriandselina.PNG" alt="Picture of Kri and Selina">
+                <br>
+                <br>
+                <br>
+                <br>
+
+                 <img class="small-image" src="/memories/kriandjake.jpg" alt="Kri and Jake Canes">
+                 <img class="small-image" src="/memories/sam.jpg" alt="Sam">
+            </div>
+        </div>
+
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown8')">
+            <span class="dropdown-text">Febuary 4th, 2024 (Rainy Day Part 1)</span>
+            <div class="dropdown-content" id="dropdown8">
+                <h2>Rainy Day Part 1</h2>
+                <p>This was a very rainy day where I took you out and we got wingstop and I came up with new invention of putting my umbrella on your arm. I also drove you home, it was very scary driving home alone. </p>
+                <br>
+                <img class="small-image" src="/memories/umbrelladrop.jpg" alt="umbrella arm">
+                <video class="small-image" controls>
+                    <source src="../memories/rainy_video1.MP4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <video class="small-image" controls>
+                    <source src="../memories/rainy_video2.MP4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown9')">
+            <span class="dropdown-text">Febuary 5th, 2024 (Rainy Day Part 2)</span>
+            <div class="dropdown-content" id="dropdown9">
+                <h2>Rainy Day Part 2</h2>
+                <p>This day I took you out for pho and it was raining like crazy again. Later in the night we went to the village when no one was there and you took some fiya flicks of me. </p>
+                <br>
+                <img class="small-image" src="/memories/kri_pho.jpg" alt="Kri eating pho">
+                <img class="small-image" src="/memories/kri_car.jpg" alt="Kri on my car">
+                <img class="small-image" src="/memories/jake_car.jpg" alt="ME on my car">
+            </div>
+        </div>
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown10')">
+            <span class="dropdown-text">Febuary 6th, 2024 (National Yogurt Day)</span>
+            <div class="dropdown-content" id="dropdown10">
+                <h2>National Yogurt Day</h2>
+                <p>We went out for national yogurt day. Yup that’s it, yogurt. </p>
+                <br>
+                <img class="small-image" src="/memories/kri_yogurt.jpg" alt="Kri eating yogurt">
+                <img class="small-image" src="/memories/jake_yogurt.jpg" alt="Jake & Kri eating yogurt">
+                <img class="small-image" src="/memories/yogurt_sign.jpg" alt="Yogurt Sign">
+            </div>
+        </div>
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown11')">
+            <span class="dropdown-text">Febuary 14th, 2024 (Cat4You)</span>
+            <div class="dropdown-content" id="dropdown11">
+                <h2>Cat4You</h2>
+                <p>I bought you a matching cat on valentines day. There's a reason I gave it to you on valentines day 😡. I hope you keep the cat forever.</p>
+                <br>
+                <img class="small-image" src="/memories/cat1.jpg" alt="Picture of cat 1">
+                <img class="small-image" src="/memories/cat2.PNG" alt="Picture of cat 2">
+                <img class="small-image" src="/memories/cat3.PNG" alt="Picture of cat 3">
+                
+            </div>
+        </div>
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown12')">
+            <span class="dropdown-text">March 3rd, 2024 (Dutch Bros)</span>
+            <div class="dropdown-content" id="dropdown12">
+                <h2>Dutch Bros</h2>
+                <p>This is the first time you took me to dutchbros. Remember this is the one located in Eastvale, a 12 mile drive from claremont! I didn't mind because I liked you.</p>
+                <br>
+
+                <img class="small-image" src="/memories/dutch1.jpg" alt="Dutch Bros Picture 1">
+                <img class="small-image" src="/memories/dutch2.jpg" alt="Dutch Bros Picture 2">
+               
+            </div>
+        </div>
+
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown13')">
+            <span class="dropdown-text">March 16th, 2024 (Tennis Day)</span>
+            <div class="dropdown-content" id="dropdown13">
+                <h2>Tennis Day</h2>
+                <p>We played tennis with Anna and Selina. It was very fun, but I'm better thank you at Tennis 😛</p>
+                <br>
+                <img class="small-image" src="/memories/kri_tennis.JPG" alt="Kri and Jake Tennis">
+                <img class="small-image" src="/memories/kri_tennis2.jpg" alt="Money Kri">
+                <video class="small-image" controls>
+                    <source src="../memories/tennis_video.MOV" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+            </div>
+        </div>
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown14')">
+            <span class="dropdown-text">May 4th, 2024 (Prom 24')</span>
+            <div class="dropdown-content" id="dropdown14">
+                <h2>Prom 24' and my Birthday</h2>
+                <p>I will say this time and time again, that was my favorite birthday ever :3. I really enjoyed spending the day with you and it was really nice. I had the prettiest prom date. I hope I can go to prom with you again. 
+                </p>
+                <br>
+                <img class="small-image" src="/memories/prom1.JPG" alt="Prom Pic 1">
+                <img class="small-image" src="/memories/prom2.JPG" alt="Prom Pic 2">
+                <br>
+                <br>
+                <br>
+                <img class="small-image" src="/memories/prom3.JPG" alt="Prom Pic 3">
+            </div>
+        </div>
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown15')">
+            <span class="dropdown-text">May 19th, 2024 (Your Belated Birthday)</span>
+            <div class="dropdown-content" id="dropdown15">
+                <h2>Your Belated Birthday</h2>
+                <p>This was your birthday celebration. We couldn’t actually celebrate your birthday because I got sick that weekend. I’m sorry about that 🙁. It was fun though. I picked you up and we cuddled at my house for a little bit. Then we went to boiling point and top golf. Watching you play is really attractive 😍. When I took you home I had a bloody nose. Aghhh
+                </p>
+                <br>
+                <img class="small-image" src="/memories/birthday_food.jpg" alt="boiling point">
+                <img class="small-image" src="/memories/birthday_photo.jpg" alt="top golf">
+                <video class="small-image" controls>
+                    <source src="../memories/birthday_video.MOV" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown16')">
+            <span class="dropdown-text">June 13th, 2024 (Graduation)</span>
+            <div class="dropdown-content" id="dropdown16">
+                <h2>Graduation</h2>
+                <p>The Idea of graduation really scared me. I really just wanted to get it over with and never return back to Claremont. However, it was probably the best day I’ve ever had. I went swimming with you. Both sides of my family came to support me and then we all went to dinner together. Then after dinner I took you alone and got to read the sweetest set of words that you’ve ever written to me, a set of words that I will truly cherish forever. 
+                </p>
+                <br>
+                <img class="small-image" src="/memories/grad1.JPG" alt="grad 1">
+                <img class="small-image" src="/memories/grad2.JPG" alt="grad 2">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <img class="small-image" src="/memories/grad3.JPG" alt="grad 3">
+                <img class="small-image" src="/memories/grad4.jpg" alt="grad 4">
+            </div>
+        </div>
+
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown17')">
+            <span class="dropdown-text">June 18th, 2024 (Beach Day)</span>
+            <div class="dropdown-content" id="dropdown17">
+                <h2>Beach Day</h2>
+                <p>This is the first time we ever went to the beach together. It’s also the first time you’ve done it ifykyk 😉. It was really fun, it was the first time I’ve gotten to take you far. I wish I could’ve taken you to see my Mom’s house, maybe one day you will. 
+                </p>
+                <br>
+                <img class="small-image" src="/memories/beach1.jpg" alt="Beach 1">
+                <img class="small-image" src="/memories/beach2.JPG" alt="Beach 2">
+                <br>
+                <br>
+                <br>
+                <br>
+                <img class="small-image" src="/memories/beach3.jpg" alt="Beach 3">
+
+
+                <p>DO NOT LOOK AT MY FEET 😡</p>
+            </div>
+        </div>
+
+
+        <div class="dropdown" onclick="toggleDropdown(event, 'dropdown18')">
+            <span class="dropdown-text">June 27th, 2024 (Our First Date)</span>
+            <div class="dropdown-content" id="dropdown18">
+                <h2>Our First Date</h2>
+                <p>This was the first time I’ve gotten to take you out alone. The first time we actually went on a date. I got you flowers (lego) and took you out for sushi. We also got boba after 😁. I can’t wait to take you out for many more dates. Hopefully by the time you see this we will have gone on plenty more dates. 
+                </p>
+                <br>
+                <img class="small-image" src="/memories/date1.jpg" alt="date 1">
+                <img class="small-image" src="/memories/date2.jpg" alt="date 2">
+                <img class="small-image" src="/memories/date3.jpg" alt="date 3">
+                <br>
+                <br>
+                <br>
+                <img class="small-image" src="/memories/date4.jpg" alt="date 4">
+                
+            </div>
+        </div>
+            
+
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1> For many great memories to come <3</h1>
+
+       
+
+
+
+        
+    </div>
+
+    <script>
+        function toggleDropdown(event, id) {
+            event.stopPropagation();
+            closeAllDropdowns();
+            var dropdownContent = document.getElementById(id);
+            dropdownContent.classList.toggle("show");
+            dropdownContent.style.zIndex = '2';
+        }
+
+        function closeAllDropdowns() {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                dropdowns[i].classList.remove("show");
+                dropdowns[i].style.zIndex = '1';
+            }
+        }
+
+        document.addEventListener('click', function() {
+            closeAllDropdowns();
+        });
+    </script>
+</body>
+
+</html>
